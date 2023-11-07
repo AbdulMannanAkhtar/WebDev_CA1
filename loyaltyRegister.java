@@ -37,12 +37,12 @@ public class loyaltyRegister extends HttpServlet{
 			if(request.getParameter("password2").equals(request.getParameter("password1")));
 			PreparedStatement createUser = connection.prepareStatement(
 					"INSERT into user "
-					+ "(username, password, points)" +" VALUES (?, ?, ?)");
+					+ "(username, password)" +" VALUES (?, ?)");
 					//pass in the values as parameters
 				    createUser.setString(1, request.getParameter("username"));
 				    createUser.setString(2,  request.getParameter("password"));
-				    int points = Integer.parseInt(request.getParameter("points"));
-				    createUser.setInt(3, points);
+				    //int points = Integer.parseInt(request.getParameter("points"));
+				    //createUser.setInt(3, points);
 					int rowsUpdated = createUser.executeUpdate();
 					createUser.close();
 				
